@@ -1,0 +1,11 @@
+.layout {
+  display: flex;
+  width: 100%;
+}
+.main {
+  padding: 20px;
+  padding-top: 100px;
+}
+.headdd {
+  width: 100%;
+}
