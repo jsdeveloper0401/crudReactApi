@@ -92,13 +92,13 @@ const Cars = () => {
                                     { id, name, brand, color, price, year, },
                                     index
                                 ) => (
-                                    <tr key={id}>
-                                        <td>{index + 1}</td>
-                                        <td>{name}</td>
-                                        <td>{brand}</td>
-                                        <td>{color}</td>
-                                        <td>{price}</td>
-                                        <td>{year}</td>
+                                    <tr className="" key={id}>
+                                        <td><span>ID</span> {index + 1}</td>
+                                        <td><span>Name</span> {name}</td>
+                                        <td><span>Brand</span> {brand}</td>
+                                        <td><span>Color</span> {color}</td>
+                                        <td><span>Price</span> {price}</td>
+                                        <td><span>Year</span> {year}</td>
                                         <td>
                                             <div className="d-flex gap-3">
                                                 <button className="btn btn-warning">

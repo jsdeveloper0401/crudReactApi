@@ -10,12 +10,23 @@ const Users = () => {
     const [editingId, setEditingId] = useState(null);
     const [editingTitle, setEditingTitle] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const limit = windowWidth <= 450 ? 4 : 9;
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
       useEffect(() => {
           setLoading(true);
           axios
               .get(
-                  `https://jsonplaceholder.typicode.com/photos?&_page=${currentPage}`
+                  `https://jsonplaceholder.typicode.com/users?_page=${currentPage}&_limit=${limit}`
               )
               .then((response) => {
                   setTodos(response.data);

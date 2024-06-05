@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import prev from "@img/prev.svg";
 import next from "@img/next.svg";
 import Rolling from "@img/rolling.svg";
+import "./users.css";
 
 const Users = () => {
     const [users, setUsers] = useState([]);
@@ -61,15 +62,15 @@ const Users = () => {
                 <tbody>
                     {users.map((user) => (
                         <tr key={user.id}>
-                            <td>{user.id}</td>
-                            <td>{user.name}</td>
-                            <td>{user.username}</td>
-                            <td>{user.email}</td>
-                            <td>{user.address.city}</td>
-                            <td>{user.address.street}</td>
-                            <td>{user.phone}</td>
-                            <td>{user.website}</td>
-                            <td>{user.company.name}</td>
+                            <td><span>Id</span>{user.id}</td>
+                            <td><span>Name</span>{user.name}</td>
+                            <td><span>Username</span>{user.username}</td>
+                            <td><span>Email</span>{user.email}</td>
+                            <td><span>Address</span>{user.address.city}</td>
+                            <td><span>Street</span>{user.address.street}</td>
+                            <td><span>Phone</span>{user.phone}</td>
+                            <td><span>Website</span>{user.website}</td>
+                            <td><span>Company</span>{user.company.name}</td>
                         </tr>
                     ))}
                 </tbody>
