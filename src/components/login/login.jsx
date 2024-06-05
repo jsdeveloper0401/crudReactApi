@@ -28,7 +28,7 @@ const Login = () => {
                 <div className="row">
                     <div className="">
                         <form id="form" onSubmit={handleSubmit}>
-                            <div className="card card1">
+                            <div className=" card1">
                                 <div className="card-header">
                                     <h1 className="text-center">
                                         Tizimga kirish
