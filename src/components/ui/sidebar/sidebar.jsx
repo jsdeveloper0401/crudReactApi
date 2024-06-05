@@ -15,7 +15,7 @@ const Sidebar = () => {
         {
             path: "/main",
             label: "Cars",
-            additionalClass: "bg-warning text-bold",
+            additionalClass: " text-bold",
         },
         { path: "/main/users", label: "Users" },
         { path: "/main/todos", label: "Todos" },

@@ -14,7 +14,7 @@
 }
 
 .navLink {
-    border: 1.5px solid transparent;
+    border: 1.5px solid cyan;
     margin: 10px 0;
     padding: 10px 15px;
     border-radius: 5px;
@@ -25,13 +25,13 @@
 }
 
 .navLink:hover {
-    background-color: rgb(235, 149, 36);
+    background-color:cyan;
     color: black;
      font-weight: bold;
 }
 
 .active {
-    background-color: rgb(235, 149, 36);
+    background-color: cyan;
     color: black;
     font-weight: bold;
 }
