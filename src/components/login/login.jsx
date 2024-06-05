@@ -21,12 +21,12 @@ const Login = () => {
         }
         setForm({ username: "", password: "" });
     };
-
+    
     return (
         <section className="Login">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-6 offset-3 mt-5 responsive">
+                    <div className="">
                         <form id="form" onSubmit={handleSubmit}>
                             <div className="card card1">
                                 <div className="card-header">
