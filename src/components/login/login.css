@@ -23,11 +23,12 @@
 }
 
 .card1 {
+    width: 100%;
     max-width: 400px;
     margin: 150px auto 0;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     animation: backgroundAnimation 5s infinite alternate;
 }
 
@@ -40,18 +41,7 @@
     height: 100vh;
     animation: colorAnimation 5s infinite alternate;
 }
-.login .container {
-    max-width: 600px;
-}
 
-.login .card {
-    margin-top: 2rem;
-}
 
-.login .form-control {
-    margin-bottom: 1rem;
-}
 
-.login .btn-info {
-    width: 100%;
-}
+
