@@ -1,16 +1,14 @@
-
 .sidebar {
     position: sticky;
-    top: 0; 
+    top: 0;
     left: 0;
     height: 100vh;
-    width: 25%;
     box-shadow: 3px 0 5px rgba(0, 0, 0, 0.1);
     background: #000000d2;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    z-index: 1000; 
+    z-index: 1000;
 }
 
 .navLink {
@@ -20,14 +18,17 @@
     border-radius: 5px;
     text-decoration: none;
     font-size: 18px;
-    color:#fff;
+    color: #fff;
     transition: 0.5s ease all;
+    display: flex;
+    gap: 15px;
+    align-items: center;
 }
 
 .navLink:hover {
-    background-color:cyan;
+    background-color: cyan;
     color: black;
-     font-weight: bold;
+    font-weight: bold;
 }
 
 .active {
@@ -46,3 +47,21 @@
     font-size: 16px;
 }
 
+@media (max-width: 650px) {
+    .navLink span {
+        display: none;
+    }
+    .navLink i {
+        display: block;
+    }
+    .navLink .fa-right-from-bracket {
+        display: inline-block;
+    }
+    .navLink {
+        width: 50px;
+        justify-content: center;
+    }
+    .text-white {
+        display: none;
+    }
+}

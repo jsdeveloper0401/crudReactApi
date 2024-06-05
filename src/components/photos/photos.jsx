@@ -1,16 +1,25 @@
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Rolling from "@img/rolling.svg";
-import prev from "@img/prev.svg"
-import next from "@img/next.svg"
+import prev from "@img/prev.svg";
+import next from "@img/next.svg";
 import "./photos.css";
 
 const Photos = () => {
     const [photos, setPhotos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
-    const limit = 9;
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const limit = windowWidth <= 450 ? 2 : 9;
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         setLoading(true);
@@ -26,7 +35,7 @@ const Photos = () => {
                 console.log(err);
                 setLoading(false);
             });
-    }, [currentPage]);
+    }, [currentPage, limit]);
 
     const handlePreviousPage = () => {
         setCurrentPage((prev) => Math.max(prev - 1, 1));
@@ -45,7 +54,7 @@ const Photos = () => {
     }
 
     let cards = photos?.map((el) => (
-        <div key={el.id} className="col-md-4 mb-4">
+        <div key={el.id} className="col-12 mb-4">
             <div className="foto card h-100">
                 <img
                     src={el.thumbnailUrl}
@@ -77,11 +86,13 @@ const Photos = () => {
                                 disabled={currentPage === 1}>
                                 <img src={prev} alt="prev icon" />
                             </button>
-                            <span className="btn btn-info mx-2">Page {currentPage}</span>
+                            <span className="btn btn-info mx-2">
+                                Page {currentPage}
+                            </span>
                             <button
                                 onClick={handleNextPage}
                                 className="btn btn-primary">
-                               <img src={next} alt="next icon" />
+                                <img src={next} alt="next icon" />
                             </button>
                         </div>
                     </div>

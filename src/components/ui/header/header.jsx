@@ -1,5 +1,4 @@
 import "./header.css";
-import routes from "@routes";
 import { NavLink, useLocation } from "react-router-dom";
 import Logo from "@img/navLogo.svg";
 import Login from "@img/login.png";
@@ -13,25 +12,10 @@ const Index = () => {
     return (
         <header className="header">
             <div className="container-header">
-                <nav className="nav d-flex align-items-center">
+                <nav className="nav container">
                     <NavLink to="/">
                         <img src={Logo} className="nav-logo-img" alt="Logo" />
                     </NavLink>
-                    <ul className="d-flex align-items-center m-0 w-15%">
-                        {routes?.map((item, index) => (
-                            <li key={index} className="list-unstyled nav-item">
-                                <NavLink
-                                    to={item.path}
-                                    className={`text-decoration-none  ${
-                                        location.pathname === item.path
-                                            ? "active"
-                                            : ""
-                                    }`}>
-                                    {item.content}
-                                </NavLink>
-                            </li>
-                        ))}
-                    </ul>
                     <div className="input-group">
                         <div className="search-wrapper">
                             <img

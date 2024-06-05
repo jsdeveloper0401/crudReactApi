@@ -1,6 +1,6 @@
 .header {
     position: fixed;
-    width: 100%;
+    width: 80%;
     top: 0;
     padding: 20px 0;
     background: black;
@@ -9,8 +9,7 @@
 
 .nav {
     display: flex;
-    width: 100%;
-    gap: 20px;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -99,4 +98,23 @@
     z-index: 10;
     top: 25%;
     left: 10px;
+}
+@media (max-width:650px){
+    .nav-logo-img{
+        display: none;
+    }
+    .input-group{
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 450px) {
+ 
+    .search-wrapper{
+        display: none;
+    }
+    .input-group{
+        justify-content: space-around;
+    }
 }
