@@ -1,10 +1,36 @@
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: white;
+    color: black;
+}
+
+body.dark-mode {
+    background-color: black;
+    color: white;
+    .card {
+        background: #000;
+        color: #fff;
+    }
+    .card-header {
+        background: #c31c1c79;
+    }
+}
+
 .header {
     position: fixed;
     width: 80%;
     top: 0;
-    padding: 20px 0;
+    padding: 25px 0;
     background: black;
     z-index: 1001;
+    transition: padding 0.3s ease;
+}
+
+.header.shrink {
+    padding: 15px 0;
 }
 
 .nav {
@@ -99,22 +125,24 @@
     top: 25%;
     left: 10px;
 }
-@media (max-width:650px){
-    .nav-logo-img{
+@media (max-width: 900px) {
+    .nav-logo-img {
         display: none;
     }
-    .input-group{
+    .input-group {
         width: 100%;
         justify-content: center;
+    }
+    .input-group {
+        justify-content: space-around;
     }
 }
 
 @media (max-width: 450px) {
- 
-    .search-wrapper{
+    .search-wrapper {
         display: none;
     }
-    .input-group{
+    .input-group {
         justify-content: space-around;
     }
 }
