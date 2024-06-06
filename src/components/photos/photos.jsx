@@ -54,7 +54,7 @@ const Photos = () => {
     }
 
     let cards = photos?.map((el) => (
-        <div key={el.id} className="col-12 mb-4">
+        <div key={el.id} className="col-sm-12 col-md-4 mb-4">
             <div className="foto card h-100">
                 <img
                     src={el.thumbnailUrl}
