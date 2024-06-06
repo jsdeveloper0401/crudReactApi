@@ -4,14 +4,13 @@ import prev from "@img/prev.svg";
 import next from "@img/next.svg";
 import Rolling from "@img/rolling.svg";
 
-const Users = () => {
+const Todos = () => {
     const [todos, setTodos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [editingId, setEditingId] = useState(null);
     const [editingTitle, setEditingTitle] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const limit = windowWidth <= 450 ? 4 : 9;
 
     useEffect(() => {
         const handleResize = () => setWindowWidth(window.innerWidth);
@@ -22,42 +21,38 @@ const Users = () => {
         };
     }, []);
 
-      useEffect(() => {
-          setLoading(true);
-          axios
-              .get(
-                  `https://jsonplaceholder.typicode.com/users?_page=${currentPage}&_limit=${limit}`
-              )
-              .then((response) => {
-                  setTodos(response.data);
-                  setLoading(false);
-              })
-              .catch((err) => {
-                  console.log(err);
-                  setLoading(false);
-              });
-      }, [currentPage]);
+    useEffect(() => {
+        const limit = windowWidth <= 450 ? 4 : 9;
+        setLoading(true);
+        axios
+            .get(`https://jsonplaceholder.typicode.com/todos`, {
+                params: {
+                    _page: currentPage,
+                    _limit: limit,
+                },
+            })
+            .then((response) => {
+                setTodos(response.data);
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.log(err);
+                setLoading(false);
+            });
+    }, [currentPage, windowWidth]);
 
-          const handlePreviousPage = () => {
-              setCurrentPage((prev) => Math.max(prev - 1, 1));
-          };
+    const handlePreviousPage = () => {
+        setCurrentPage((prev) => Math.max(prev - 1, 1));
+    };
 
-          const handleNextPage = () => {
-              setCurrentPage((prev) => prev + 1);
-          };
-
-          if (loading) {
-              return (
-                  <h3 style={{ textAlign: "center", marginTop: "20px" }}>
-                      <img src={Rolling} alt="Loading..." />
-                  </h3>
-              );
-          }
+    const handleNextPage = () => {
+        setCurrentPage((prev) => prev + 1);
+    };
 
     const deleteTodo = (id) => {
         axios
             .delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-            .then((response) => {
+            .then(() => {
                 setTodos(todos.filter((todo) => todo.id !== id));
             })
             .catch((err) => {
@@ -130,13 +125,13 @@ const Users = () => {
                                 {editingId === item.id ? (
                                     <button
                                         type="submit"
-                                        className="btn btn-success mx-1"
+                                        className="btn btn-success m-1"
                                         onClick={() => saveEdit(item.id)}>
                                         Save
                                     </button>
                                 ) : (
                                     <button
-                                        className="btn btn-info mx-1"
+                                        className="btn btn-info m-1 responsive"
                                         onClick={() =>
                                             startEditing(item.id, item.title)
                                         }>
@@ -144,7 +139,7 @@ const Users = () => {
                                     </button>
                                 )}
                                 <button
-                                    className="btn btn-danger mx-1"
+                                    className="btn btn-danger mx-1 responsive"
                                     onClick={() => deleteTodo(item.id)}>
                                     Delete
                                 </button>
@@ -169,4 +164,4 @@ const Users = () => {
     );
 };
 
-export default Users;
+export default Todos;
