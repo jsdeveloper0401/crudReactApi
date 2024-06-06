@@ -5,7 +5,7 @@ const SingleCar = () => {
     const { car } = location.state;
 
     return (
-        <div className="card col-md-4 offset-4 p-4">
+        <div className="card d-grid col-sm-12 bg-info text-white col-md-6 col-lg-4 mx-auto p-4">
             <h1>Car Details</h1>
             <h3>Name: {car.name}</h3>
             <h5>Brand: {car.brand}</h5>
